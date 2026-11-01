@@ -25,7 +25,10 @@ async function supabaseRequest(path: string, init?: RequestInit) {
 export async function readPortfolioContent(): Promise<PortfolioContent> {
   if (supabaseUrl() && supabaseKey()) {
     const response = await supabaseRequest('portfolio_content?id=eq.portfolio&select=content');
-    if (!response.ok) throw new Error(`Could not load portfolio content from Supabase (${response.status}).`);
+    if (!response.ok) {
+      const detail = (await response.text()).slice(0, 800);
+      throw new Error(`Could not load portfolio content from Supabase (${response.status}): ${detail}`);
+    }
     const rows = await response.json() as Array<{ content: PortfolioContent }>;
     if (rows[0]?.content) return rows[0].content;
     return JSON.parse(await readFile(contentPath(), 'utf8')) as PortfolioContent;
@@ -41,7 +44,10 @@ export async function writePortfolioContent(content: PortfolioContent) {
       headers: { Prefer: 'resolution=merge-duplicates,return=minimal' },
       body: JSON.stringify({ id: 'portfolio', content, updated_at: new Date().toISOString() }),
     });
-    if (!response.ok) throw new Error(`Could not save portfolio content to Supabase (${response.status}).`);
+    if (!response.ok) {
+      const detail = (await response.text()).slice(0, 800);
+      throw new Error(`Could not save portfolio content to Supabase (${response.status}): ${detail}`);
+    }
     return;
   }
   if (process.env.NODE_ENV === 'production') throw new Error('Production content storage is not configured. Set up Supabase before deploying.');
