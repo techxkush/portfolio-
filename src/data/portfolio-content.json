@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "name": "Kush Khurana",
+    "kicker": "A HUMAN PERSPECTIVE ON TECHNOLOGY",
+    "headline": "BTech AI student at Zenith School of AI, learning to build useful things."
+  },
+  "about": {
+    "title": "Curiosity is",
+    "emphasis": "the starting point.",
+    "lead": "I’m Kush, a BTech student in Artificial Intelligence at Zenith School of AI.",
+    "body": "I’m interested in how thoughtful software can solve everyday problems. My current ideas explore food deal discovery and private, AI-assisted cycle tracking."
+  },
+  "stats": {
+    "projects": "4",
+    "dsaSolved": "150+"
+  },
+  "projects": [
+    {
+      "name": "BachatBites",
+      "category": "01 / FOOD & SAVINGS",
+      "description": "A food discovery app for comparing prices, restaurant offers, and delivery-app deals in one place.",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Supabase",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "name": "FlowSense AI",
+      "category": "02 / WELLBEING & AI",
+      "description": "A menstrual cycle tracker with AI-assisted summaries and optional, consent-based sharing with a partner.",
+      "technologies": [
+        "Expo",
+        "React Native",
+        "TypeScript",
+        "Supabase",
+        "AI summaries"
+      ]
+    }
+  ],
+  "education": {
+    "school": "Zenith School of AI",
+    "degree": "Bachelor of Technology · Artificial Intelligence",
+    "graduation": "2030"
+  },
+  "links": {
+    "github": "https://github.com/khuranakush26",
+    "linkedin": "https://www.linkedin.com/in/kush-khurana-326454287",
+    "email": "techxkush@gmail.com"
+  }
+}
